@@ -1,0 +1,78 @@
+1.Можна сказати що змінна це контейнер в якому зберігаються певні значення.
+2.int, str, bool, float, list, dict, tuple.
+3.Функція це блок коду який виконує певну задачу. Функція особлива тим що її можна викликати з любої частини програми.
+4.Метод це функція яка працює тільки з об'єктами певного класу.
+5.public, protected, private.
+6.Клас це як шаблон для створення об'єктів. Він визначає які атрибути і методи буде мати об'єкт. Кдас дозволяє використовувати об'єктно-орієнтоване програмування.
+7.Безкінечний цикл:
+a = 0
+
+while True:
+    a += 1
+    print(a)
+8.
+class BankUser:
+    def __init__(self, user, data=0):
+        self.user = user
+        self.data = data
+    def set_data(self, amount):
+        self.data = amount
+        print(f"{self.user}, your data has updated. Your data: {self.data}")
+    def check_data(self):
+        print(f"{self.user}, your data: {self.data}")
+
+users = {}
+
+while True:
+    print("1. Create user")
+    print("2. Operations with data")
+    print("3. Exit")
+    choice = int(input("Choose option (1/2/3): "))
+
+    if choice == 1:
+        user = input("Choose name for your acount: ")
+        new_user = BankUser(user)
+        users[user] = new_user
+        print(f"User {user} has created")
+    elif choice == 2:
+        user = input("Write name of your acount: ")
+        if user in users:
+            current_user = users[user]
+            print("1. Set data")
+            print("2. Check data")
+            operation_choice = int(input("Choose option (1/2): "))
+            if operation_choice == 1:
+                amount = float(input("Set your data: "))
+                current_user.set_data(amount)
+            elif operation_choice == 2:
+                current_user.check_data()
+            else:
+                print("Invalid option")
+        else:
+            print("Invalid user name")
+    elif choice == 3:
+        break
+    else:
+        print("Invalid option")
+9.
+import random
+class kalkulator:
+    def __init__(self, number):
+        self.number = number
+        self.operation = random.choice(['+', '-', '*', '/'])
+    def _perform_operation(self):
+        if self.operation == '+':
+            return self.number + random.randint(1, 10)
+        elif self.operation == '-':
+            return self.number - random.randint(1, 10)
+        elif self.operation == '*':
+            return self.number * random.randint(1, 10)
+        elif self.operation == '/':
+            return self.number / random.randint(1, 10)
+    def display_result(self):
+        result = self._perform_operation()
+        print(f"Відповідь: {result}")
+user_input = float(input("Введіть число: "))
+calculator = kalkulator(user_input)
+calculator.display_result()
+ 
